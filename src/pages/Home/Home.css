@@ -180,12 +180,10 @@
     background-color: #f2cc8f;
 }
 
-/* ==== TESTIMONIOS ==== */
 .floaters {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 3rem 2rem;
     background-color: #f7f7f7;
 }
 

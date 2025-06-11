@@ -1,8 +1,6 @@
-/* Contactanos.css */
 
 .contact-main {
   width: 100%;
-  padding: 4rem 1rem;
   background-color: #f7f6f3;
   animation: fadeIn 0.8s ease-in-out;
 }
@@ -70,7 +68,7 @@
 
 .input-field input,
 .input-field textarea {
-  width: 90%;
+  width: 100%;
   padding: 1rem;
   border-radius: 0.5rem;
   border: 1px solid #ccc;
@@ -143,8 +141,7 @@
 
 @media (max-width: 768px) {
   .inner-contact-main {
-    flex-direction: column;
-    padding: 2rem 1rem;
+    padding: 2rem 1.2rem;
   }
 
   .contact-text-container,
@@ -152,33 +149,44 @@
     width: 100%;
   }
 
+  .contact-text-container h2 {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .contact-text-container h2::before {
+    display: none;
+  }
+
   .contact-text-container h3,
   .inner-contact-form-container h4 {
-    font-size: 1.3rem;
     text-align: center;
   }
 
   .h3-pragraph {
     text-align: center;
+    margin-top: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .contact-text-container h2 {
-    font-size: 1rem;
-    padding-left: 35px;
-  }
-
-  .contact-text-container h2::before {
-    width: 28px;
+  .contact-text-container h3,
+  .inner-contact-form-container h4 {
+    font-size: 1.1rem;
   }
 
   .submit-btn {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    padding: 0.8rem;
   }
 
   .input-field input,
   .input-field textarea {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    padding: 0.9rem;
+  }
+
+  .inner-contact-main {
+    padding: 1.5rem 1rem;
   }
 }
