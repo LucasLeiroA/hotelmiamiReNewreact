@@ -29,7 +29,6 @@
     justify-content: center;
 }
 
-/* ==== TEXT CONTENT ==== */
 .welcome h2 {
     font-family: 'Roboto', sans-serif;
     font-size: clamp(1.5rem, 4vw, 3rem);
@@ -58,14 +57,14 @@
     margin-bottom: 1.2rem;
 }
 
-.book-now,
+.book-now ,
 .contact-us {
     display: flex;
     justify-content: center;
     margin-top: 1.5rem;
 }
 
-.book-now a,
+.book-now button,
 .contact-us a {
     position: relative;
     padding: 0.85rem 2.2rem;
@@ -82,7 +81,7 @@
     transition: background-color 0.4s ease;
 }
 
-.book-now a::before,
+.book-now button::before,
 .contact-us a::before {
     content: '';
     position: absolute;
@@ -95,12 +94,12 @@
     transition: all 0.4s ease;
 }
 
-.book-now a:hover::before,
+.book-now button:hover::before,
 .contact-us a:hover::before {
     left: 0;
 }
 
-.book-now a span,
+.book-now button span,
 .contact-us a span {
     position: relative;
     z-index: 2;
@@ -108,7 +107,7 @@
     transition: color 0.3s ease;
 }
 
-.book-now a:hover span,
+.book-now button:hover span,
 .contact-us a:hover span {
     color: #1E202D;
 }
