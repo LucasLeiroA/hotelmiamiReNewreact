@@ -16,7 +16,7 @@ const AppRouter = () => {
         <Route path="/facilities" element={<Facilities />} />
         <Route path="/habitaciones" element={<Habitaciones />} />
         <Route path="/contactanos" element={<Contactanos />} />
-        <Route path="*" element={<h2 style={{ padding: '2rem' }}>Página no encontrada</h2>} />
+        <Route path="*" element={<Home />} />
       </Routes>
        <BtnWsp /> 
       <Footer />

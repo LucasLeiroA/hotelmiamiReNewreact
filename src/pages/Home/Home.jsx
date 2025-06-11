@@ -1,7 +1,11 @@
 import './Home.css';
-import hab1 from '../../assets/images/recepcion4.jpg';
-import heroImg from '../../assets/images/home2.jpg';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ReservaModal from '../../components/FormReservation/ReservaModal';
+import recepcion1 from '../../assets/images/recepceion2New.webp';
+import recepcion2 from '../../assets/images/recepcion1New.webp';
+import recepcion3 from '../../assets/images/recepcion3new.webp';
+import recepcion4 from '../../assets/images/recepcion4New.webp';
 
 const Home = () => {
     useEffect(() => {
@@ -11,6 +15,19 @@ const Home = () => {
         script.defer = true;
         document.body.appendChild(script);
     }, []);
+
+    const images = [recepcion2, recepcion3, recepcion4];
+    const [abrirModalReserva, setAbrirModalReserva] = useState(false);
+
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setIndex((prev) => (prev + 1) % images.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
 
     return (
         <>
@@ -26,20 +43,61 @@ const Home = () => {
                         Disfrutá de habitaciones modernas, atención personalizada y una ubicación estratégica a pasos de todo.
                     </p>
                     <div className="book-now">
-                        <a href="https://www.booking.com/hotel/ar/miami.es.html" target="_blank" rel="noreferrer">
+                        <button className="reserva-btn" onClick={() => setAbrirModalReserva(true)}>
                             <span>RESERVA AHORA</span>
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div>
-                    <img src={heroImg} alt="Hotel Miami" />
+                    <img src={recepcion1} alt="Hotel Miami" />
                 </div>
             </section>
 
             <div className="flex-container">
-                <section className="flex-tools">
-                    <img src={hab1} alt="Sobre nosotros" />
+                <section className="flex-tools w-full md:w-1/2">
+                    <div className="carousel-container">
+                        <AnimatePresence mode="wait">
+                            <motion.img
+                                key={index}
+                                src={images[index]}
+                                alt={`Imagen ${index + 1}`}
+                                initial={{ opacity: 0, scale: 1.05 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.8 }}
+                                className="carousel-image"
+                            />
+                        </AnimatePresence>
+
+                        <button
+                            onClick={() => setIndex((index - 1 + images.length) % images.length)}
+                            className="carousel-button prev"
+                            aria-label="Anterior"
+                        >
+                            ‹
+                        </button>
+
+                        <button
+                            onClick={() => setIndex((index + 1) % images.length)}
+                            className="carousel-button next"
+                            aria-label="Siguiente"
+                        >
+                            ›
+                        </button>
+
+                        <div className="carousel-dots">
+                            {images.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setIndex(i)}
+                                    className={`dot ${i === index ? 'active' : ''}`}
+                                ></button>
+                            ))}
+                        </div>
+                    </div>
                 </section>
+
+
                 <section className="flex-tools">
                     <div className="intro">
                         <div className="welcome">
@@ -86,6 +144,13 @@ const Home = () => {
                     <div className="elfsight-app-dad592c3-4237-4ede-9f91-954d4235bd55" data-elfsight-app-lazy></div>
                 </div>
             </div>
+
+            {abrirModalReserva && (
+                <ReservaModal onClose={() => setAbrirModalReserva(false)} />
+            )}
+
+
+
         </>
     );
 };

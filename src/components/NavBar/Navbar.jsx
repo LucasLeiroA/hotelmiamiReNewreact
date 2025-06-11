@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const navLinks = [
-    { path: '/', label: 'Home' },
+    { path: '/', label: 'Inicio' },
     { path: '/facilities', label: 'Instalaciones' },
     { path: '/habitaciones', label: 'Habitaciones' },
     { path: '/contactanos', label: 'Contactanos' },

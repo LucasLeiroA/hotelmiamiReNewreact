@@ -1,8 +1,18 @@
-import img1 from '../../assets/images/matrimonial3.jpg';
-import img2 from '../../assets/images/doble2.jpg';
-import img3 from '../../assets/images/matrimonial 1.jpg';
+import img1 from '../../assets/images/habitaciones1.webp';
+import img2 from '../../assets/images/habitaciones4.webp';
+import img3 from '../../assets/images/habitaciones3.webp';
 import './Habitaciones.css'
+import ReservaModal from '../../components/FormReservation/ReservaModal';
+import { useState } from 'react';
+
+
+
 const Habitaciones = () => {
+
+	const [abrirModalReserva, setAbrirModalReserva] = useState(false);
+
+
+
 	return (
 		<div className="habitaciones-container">
 			<section className="habitaciones-hero">
@@ -11,9 +21,9 @@ const Habitaciones = () => {
 					Descubre nuestras <span className="highlight">acogedoras habitaciones</span> y <span className="highlight">departamentos</span>, ideales para tu estadía. Ya sea que estés aquí por <span className="highlight">negocios</span> o por <span className="highlight">placer</span>, disfrutá de nuestra <span className="highlight">hospitalidad</span> y <span className="highlight">comodidades</span>.
 				</p>
 				<div className="book-now">
-					<a href="https://www.booking.com/hotel/ar/miami.es.html" target="_blank" rel="noreferrer">
+					<button className="reserva-btn" onClick={() => setAbrirModalReserva(true)}>
 						<span>RESERVA AHORA</span>
-					</a>
+					</button>
 				</div>
 			</section>
 
@@ -42,6 +52,9 @@ const Habitaciones = () => {
 					</figcaption>
 				</figure>
 			</section>
+			{abrirModalReserva && (
+				<ReservaModal onClose={() => setAbrirModalReserva(false)} />
+			)}
 		</div>
 	);
 };

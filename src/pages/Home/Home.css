@@ -1,65 +1,73 @@
-.hero {
+
+.hero,
+.flex-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     padding: 4rem 2rem;
     gap: 2rem;
     background-color: white;
 }
 
-.hero>div {
-    flex: 1 1 45%;
-    min-width: 280px;
+.hero img {
+    max-height: 70vh;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
+
+.hero > div,
+.flex-tools {
+    flex: 1 1 45%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ==== TEXT CONTENT ==== */
 .welcome h2 {
     font-family: 'Roboto', sans-serif;
-    font-size: clamp(1rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
     color: #1E202D;
     font-weight: 700;
     margin-bottom: 1rem;
     letter-spacing: 1px;
 }
 
-
-.hero h3 {
+.hero h3,
+.intro h3 {
     font-family: 'Roboto', sans-serif;
-    font-size: clamp(1rem, 3vw, 2.5rem);
-    line-height: 1.2;
+    font-size: clamp(1rem, 3vw, 2rem);
     color: #1E202D;
     font-weight: 500;
     margin-bottom: 1rem;
 }
 
-.hero p {
+.hero p,
+.intro p {
     font-family: 'Roboto', sans-serif;
     font-size: clamp(0.9rem, 2vw, 1rem);
     color: #50536B;
     line-height: 1.6;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-.hero img {
-    width: 100%;
-    height: auto;
-    max-width: 500px;
-    display: block;
-    margin: 0 auto;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
 }
 
 .book-now,
 .contact-us {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .book-now a,
 .contact-us a {
     position: relative;
-    display: inline-block;
     padding: 0.85rem 2.2rem;
     font-family: 'Roboto', sans-serif;
     font-size: clamp(0.85rem, 1.8vw, 0.95rem);
@@ -69,11 +77,9 @@
     background: linear-gradient(135deg, #3D405B, #2C2F4A);
     border: none;
     border-radius: 8px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     overflow: hidden;
-    z-index: 1;
-    transition: color 0.4s ease, box-shadow 0.4s ease;
+    transition: background-color 0.4s ease;
 }
 
 .book-now a::before,
@@ -94,106 +100,94 @@
     left: 0;
 }
 
+.book-now a span,
+.contact-us a span {
+    position: relative;
+    z-index: 2;
+    color: white;
+    transition: color 0.3s ease;
+}
+
 .book-now a:hover span,
 .contact-us a:hover span {
     color: #1E202D;
 }
 
-.book-now a span,
-.contact-us a span {
+/* ==== CAROUSEL ==== */
+.carousel-container {
     position: relative;
-    z-index: 2;
-    transition: color 0.4s ease;
-}
-
-
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 3rem 2rem;
-}
-
-.flex-tools {
-    flex: 1 1 45%;
-    padding: 1rem;
-}
-
-.flex-tools img {
     width: 100%;
-    height: auto;
-    max-height: 700px;
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.intro {
-    margin-top: 2rem;
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-
-
-.intro h3 {
-    font-family: 'Roboto', sans-serif;
-    font-size: clamp(1rem, 3vw, 2.5rem);
-    line-height: 1.2;
-    color: #1E202D;
-    font-weight: 500;
-    margin-bottom: 1rem;
-}
-
-.intro p {
-    font-family: 'Roboto', sans-serif;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    color: #50536B;
-    line-height: 1.6;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-
-.grid-bgclor {
-    background: #f7f7f7;
-    padding: 3rem 2rem;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.grid figure {
-    background: #fff;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    padding: 1rem;
-}
-
-.grid figure img {
-    width: 100%;
-    height: auto;
-}
-
-.grid figcaption h2 {
-    font-size: 1.2rem;
-    margin-top: 1rem;
+.carousel-button:hover {
+    background-color: #f2cc8f;
     color: #1E202D;
 }
 
-.grid figcaption p {
-    font-size: 1rem;
-    color: #50536B;
+.carousel-button.prev {
+    left: 1rem;
 }
 
-.control {
-    text-align: center;
-    margin-top: 2rem;
+.carousel-button.next {
+    right: 1rem;
 }
 
+.carousel-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #f2cc8f;
+}
+
+/* ==== TESTIMONIOS ==== */
 .floaters {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 3rem 2rem;
+    background-color: #f7f7f7;
 }
 
 .w-90 {
@@ -202,35 +196,60 @@
     margin: 0 auto;
 }
 
-.w-90 h2 {
-    font-family: 'Roboto', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-    color: #1E202D;
-    font-weight: 700;
-    margin-bottom: 2rem;
+/* ==== RESPONSIVE ==== */
+@media (max-width: 1024px) {
+    .carousel-container {
+        aspect-ratio: 16 / 10;
+    }
 }
 
-
-@media screen and (max-width: 768px) {
-
+@media (max-width: 768px) {
     .hero,
     .flex-container {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
-    .hero>div,
+    .hero > div,
     .flex-tools {
         flex: 1 1 100%;
+        max-width: 90%;
     }
 
-    .grid {
-        grid-template-columns: 1fr;
+    .carousel-container {
+        height: auto;
+        aspect-ratio: unset;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eaeaea;
     }
 
-    .logo-d {
-        position: static;
-        margin: 0 auto 2rem;
+    .carousel-image {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-height: 60vh;
+        object-fit: contain;
         display: block;
+    }
+
+    .carousel-button {
+        font-size: 1.5rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .carousel-container {
+        aspect-ratio: 16 / 12;
     }
 }

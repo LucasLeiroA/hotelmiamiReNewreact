@@ -1,11 +1,16 @@
-import heroImg from '../../assets/images/recepcion4.jpg';
-import rect41 from '../../assets/images/recepcion4.jpg';
-import rect42 from '../../assets/images/recepcion4.jpg';
-import rect43 from '../../assets/images/recepcion4.jpg';
-import rect44 from '../../assets/images/recepcion4.jpg';
+import habitaciones from '../../assets/images/habitaciones3.webp';
+import pileta from '../../assets/images/fotoPiletaNew.webp';
+import cochera from '../../assets/images/cochera1.webp';
 import './Facilities.css';
+import ReservaModal from '../../components/FormReservation/ReservaModal';
+import { useState } from 'react';
 
 const Facilities = () => {
+
+
+
+	const [abrirModalReserva, setAbrirModalReserva] = useState(false);
+
 	return (
 		<div className="facilities-container">
 
@@ -16,7 +21,9 @@ const Facilities = () => {
 						En <span className="highlight">Hotel Miami</span>, cada rincón está diseñado para ofrecerte una <span className="highlight">experiencia cómoda</span>, <span className="highlight">moderna</span> y <span className="highlight">acogedora</span>. Descubrí todos los servicios que tenemos preparados para vos.
 					</p>
 					<div className="book-now">
-						<a href="https://www.booking.com/hotel/ar/miami.es.html" target="_blank" rel="noreferrer">    <span>RESERVA AHORA</span></a>
+						<button className="reserva-btn" onClick={() => setAbrirModalReserva(true)}>
+							<span>RESERVA AHORA</span>
+						</button>
 					</div>
 				</div>
 			</section>
@@ -31,7 +38,7 @@ const Facilities = () => {
 					</p>
 				</div>
 				<div className="facility-image">
-					<img src={heroImg} alt="Habitaciones" />
+					<img src={habitaciones} alt="Habitaciones hotel" />
 				</div>
 			</div>
 
@@ -44,7 +51,7 @@ const Facilities = () => {
 					</p>
 				</div>
 				<div className="facility-image">
-					<img src={rect41} alt="Piscina" />
+					<img src={pileta} alt="Piscina en terraza" />
 				</div>
 			</div>
 
@@ -57,9 +64,12 @@ const Facilities = () => {
 					</p>
 				</div>
 				<div className="facility-image">
-					<img src={rect42} alt="Gimnasio y Sauna" />
+					<img src={cochera} alt="Cochera interna hotel" />
 				</div>
 			</div>
+			{abrirModalReserva && (
+				<ReservaModal onClose={() => setAbrirModalReserva(false)} />
+			)}
 
 		</div>
 	);
