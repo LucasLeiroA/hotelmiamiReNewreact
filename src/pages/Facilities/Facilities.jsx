@@ -32,9 +32,9 @@ const Facilities = () => {
 			<div className="facility-row">
 				<div className="facility-text">
 					<h4>Habitaciones</h4>
-					<h1>Habitaciones Cómodas y Departamento</h1>
+					<h1>Habitaciones Cómodas</h1>
 					<p>
-						Sumergite en el <span className="highlight">confort y calidez</span> de nuestras <span className="highlight">habitaciones cómodas</span> y <span className="highlight">departamentos modernos</span>, diseñados para brindarte una <span className="highlight">experiencia relajante</span> en pleno corazón de Tucumán. Cada espacio ha sido cuidadosamente ambientado para combinar <span className="highlight">funcionalidad</span> con <span className="highlight">estilo</span>, pensando en los <span className="highlight">viajeros exigentes</span> que buscan algo más que un lugar donde dormir. Descubrí el equilibrio perfecto entre <span className="highlight">comodidad</span> y <span className="highlight">hospitalidad</span> que caracteriza a Hotel Miami.
+						Sumergite en el <span className="highlight">confort y calidez</span> de nuestras <span className="highlight">habitaciones cómodas</span>, diseñados para brindarte una <span className="highlight">experiencia relajante</span> en pleno corazón de Tucumán. Cada espacio ha sido cuidadosamente ambientado para combinar <span className="highlight">funcionalidad</span> con <span className="highlight">estilo</span>, pensando en los <span className="highlight">viajeros exigentes</span> que buscan algo más que un lugar donde dormir. Descubrí el equilibrio perfecto entre <span className="highlight">comodidad</span> y <span className="highlight">hospitalidad</span> que caracteriza a Hotel Miami.
 					</p>
 				</div>
 				<div className="facility-image">

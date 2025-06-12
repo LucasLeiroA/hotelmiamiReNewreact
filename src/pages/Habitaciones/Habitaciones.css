@@ -1,7 +1,7 @@
 .habitaciones-container {
   width: 90%;
   margin: 0 auto;
-  padding: 3rem 0;
+  padding: 2rem 0;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -40,8 +40,8 @@
 
 .habitaciones-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
 }
 
 .habitaciones-grid figure {
@@ -58,19 +58,19 @@
 }
 
 .habitaciones-grid figcaption {
-  padding: 1rem;
+  padding: 0.75rem;
 }
 
 .habitaciones-grid h2 {
   color: #1e202d;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
 }
 
 .habitaciones-grid p {
   color: #50536B;
-  line-height: 1.6;
-  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .highlight {

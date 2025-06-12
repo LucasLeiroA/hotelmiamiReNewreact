@@ -16,9 +16,9 @@ const Habitaciones = () => {
 	return (
 		<div className="habitaciones-container">
 			<section className="habitaciones-hero">
-				<h3>Habitaciones y Departamentos</h3>
+				<h3>Habitaciones</h3>
 				<p>
-					Descubre nuestras <span className="highlight">acogedoras habitaciones</span> y <span className="highlight">departamentos</span>, ideales para tu estadía. Ya sea que estés aquí por <span className="highlight">negocios</span> o por <span className="highlight">placer</span>, disfrutá de nuestra <span className="highlight">hospitalidad</span> y <span className="highlight">comodidades</span>.
+					Descubre nuestras <span className="highlight">acogedoras habitaciones</span>, ideales para tu estadía. Ya sea que estés aquí por <span className="highlight">negocios</span> o por <span className="highlight">placer</span>, disfrutá de nuestra <span className="highlight">hospitalidad</span> y <span className="highlight">comodidades</span>.
 				</p>
 				<div className="book-now">
 					<button className="reserva-btn" onClick={() => setAbrirModalReserva(true)}>
@@ -44,13 +44,13 @@ const Habitaciones = () => {
 					</figcaption>
 				</figure>
 
-				<figure>
+				{/* <figure>
 					<img src={img3} alt="Departamentos Familiares" />
 					<figcaption>
 						<h2>Departamentos Familiares</h2>
 						<p>Amplios y <span className="highlight">equipados</span> para brindar <span className="highlight">comodidad a toda la familia</span>. Sentite como en casa durante tus <span className="highlight">vacaciones</span> o <span className="highlight">viajes de negocios</span>.</p>
 					</figcaption>
-				</figure>
+				</figure> */}
 			</section>
 			{abrirModalReserva && (
 				<ReservaModal onClose={() => setAbrirModalReserva(false)} />
