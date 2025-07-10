@@ -4,7 +4,17 @@ export default {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "#1e1e1e",
+          },
+        },
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate"),
+  ],
 };

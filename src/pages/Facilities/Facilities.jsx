@@ -1,78 +1,98 @@
-import habitaciones from '../../assets/images/habitaciones3.webp';
-import pileta from '../../assets/images/fotoPiletaNew.webp';
-import cochera from '../../assets/images/cochera1.webp';
-import './Facilities.css';
-import ReservaModal from '../../components/FormReservation/ReservaModal';
-import { useState } from 'react';
+import { useEffect, useState } from "react";
+import habitaciones from "../../assets/images/habitaciones3.webp";
+import pileta from "../../assets/images/fotoPiletaNew.webp";
+import cochera from "../../assets/images/cochera1.webp";
+import ReservaModal from "../../components/FormReservation/ReservaModal";
+import AOS from "aos";
+
+const data = [
+  {
+    title: "Habitaciones Cómodas",
+    subtitle: "Habitaciones",
+    image: habitaciones,
+    content: `Sumergite en el confort y calidez de nuestras habitaciones cómodas, diseñadas para brindarte una experiencia relajante en pleno corazón de Tucumán. Cada espacio ha sido cuidadosamente ambientado para combinar funcionalidad con estilo, pensando en los viajeros exigentes que buscan algo más que un lugar donde dormir.`,
+  },
+  {
+    title: "Piscina en la Terraza",
+    subtitle: "Piscina",
+    image: pileta,
+    content: `Descubrí nuestra piscina en la terraza, un espacio exclusivo con vistas panorámicas al centro de Tucumán. Diseñada para ofrecer una experiencia relajante y memorable, es el lugar ideal para desconectar y sumergirte en un entorno de tranquilidad y confort.`,
+  },
+  {
+    title: "Servicio de Cochera Interna",
+    subtitle: "Cochera Interna",
+    image: cochera,
+    content: `Contamos con un servicio de cochera interna disponible las 24 horas, pensado para ofrecerte mayor comodidad y seguridad durante tu estadía. Mantené tu auto protegido y siempre accesible mientras disfrutás de tu visita.`,
+  },
+];
 
 const Facilities = () => {
+  const [abrirModalReserva, setAbrirModalReserva] = useState(false);
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
+  return (
+    <div className="w-[90%] mx-auto flex flex-col gap-20 mb-24 font-['Roboto']">
+      {/* Hero Section */}
+      <section className="text-center py-20" data-aos="fade-up">
+        <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Instalaciones pensadas para tu bienestar
+        </h3>
+        <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+          En <span className="text-[#f2cc8f] font-semibold">Hotel Miami</span>, cada rincón está diseñado para ofrecerte una{" "}
+          <span className="text-[#f2cc8f] font-semibold">experiencia cómoda</span>,{" "}
+          <span className="text-[#f2cc8f] font-semibold">moderna</span> y{" "}
+          <span className="text-[#f2cc8f] font-semibold">acogedora</span>. Descubrí todos los servicios que tenemos preparados para vos.
+        </p>
+        <button
+          onClick={() => setAbrirModalReserva(true)}
+          className="mt-8 bg-[#3D405B] text-white px-8 py-3 rounded-md hover:bg-[#2c2f48] transition duration-300 cursor-pointer text-lg"
+        >
+          RESERVA AHORA
+        </button>
+      </section>
 
-	const [abrirModalReserva, setAbrirModalReserva] = useState(false);
+      {/* Facilities Sections */}
+      {data.map((item, index) => (
+        <div
+          key={index}
+          className={`flex flex-col-reverse lg:flex-row ${
+            index % 2 !== 0 ? "lg:flex-row-reverse" : ""
+          } items-center gap-12`}
+          data-aos="fade-up"
+        >
+          {/* Text Content */}
+          <div className="flex-1">
+            <h4 className="text-[#f2cc8f] text-base md:text-lg font-semibold mb-2 uppercase tracking-wide">
+              {item.subtitle}
+            </h4>
+            <h2 className="text-2xl md:text-4xl font-bold text-[#1E202D] mb-4">
+              {item.title}
+            </h2>
+            <p className="text-gray-600 text-base leading-relaxed">
+              {item.content}
+            </p>
+          </div>
 
-	return (
-		<div className="facilities-container">
+          {/* Image */}
+          <div className="flex-1 max-w-[600px] w-full overflow-hidden rounded-lg shadow-lg">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-[400px] object-cover rounded-lg transition-transform duration-500 hover:scale-105 cursor-pointer"
+            />
+          </div>
+        </div>
+      ))}
 
-			<section className="facilities-hero">
-				<div className="hero-content">
-					<h3>Instalaciones pensadas para tu bienestar</h3>
-					<p>
-						En <span className="highlight">Hotel Miami</span>, cada rincón está diseñado para ofrecerte una <span className="highlight">experiencia cómoda</span>, <span className="highlight">moderna</span> y <span className="highlight">acogedora</span>. Descubrí todos los servicios que tenemos preparados para vos.
-					</p>
-					<div className="book-now">
-						<button className="reserva-btn" onClick={() => setAbrirModalReserva(true)}>
-							<span>RESERVA AHORA</span>
-						</button>
-					</div>
-				</div>
-			</section>
-
-
-			<div className="facility-row">
-				<div className="facility-text">
-					<h4>Habitaciones</h4>
-					<h1>Habitaciones Cómodas</h1>
-					<p>
-						Sumergite en el <span className="highlight">confort y calidez</span> de nuestras <span className="highlight">habitaciones cómodas</span>, diseñados para brindarte una <span className="highlight">experiencia relajante</span> en pleno corazón de Tucumán. Cada espacio ha sido cuidadosamente ambientado para combinar <span className="highlight">funcionalidad</span> con <span className="highlight">estilo</span>, pensando en los <span className="highlight">viajeros exigentes</span> que buscan algo más que un lugar donde dormir. Descubrí el equilibrio perfecto entre <span className="highlight">comodidad</span> y <span className="highlight">hospitalidad</span> que caracteriza a Hotel Miami.
-					</p>
-				</div>
-				<div className="facility-image">
-					<img src={habitaciones} alt="Habitaciones hotel" />
-				</div>
-			</div>
-
-			<div className="facility-row reverse">
-				<div className="facility-text">
-					<h4>Piscina</h4>
-					<h1>Piscina en la Terraza</h1>
-					<p>
-						Descubrí nuestra <span className="highlight">piscina en la terraza</span>, un espacio exclusivo con <span className="highlight">vistas panorámicas</span> al centro de Tucumán. Diseñada para ofrecer una <span className="highlight">experiencia relajante</span> y memorable, es el lugar ideal para <span className="highlight">desconectar del bullicio</span> y sumergirte en un entorno de <span className="highlight">tranquilidad y confort</span>. Disfrutá de sus <span className="highlight">aguas cristalinas</span>, contemplá el paisaje urbano desde lo alto y relajate en nuestras <span className="highlight">zonas de descanso</span>, pensadas para brindarte <span className="highlight">momentos únicos</span> en el corazón de la ciudad.
-					</p>
-				</div>
-				<div className="facility-image">
-					<img src={pileta} alt="Piscina en terraza" />
-				</div>
-			</div>
-
-			<div className="facility-row">
-				<div className="facility-text">
-					<h4>Cochera Interna</h4>
-					<h1>Servicio de Cochera Interna</h1>
-					<p>
-						En <span className="highlight">Hotel Miami</span> priorizamos tu <span className="highlight">tranquilidad</span> y la <span className="highlight">seguridad de tu vehículo</span>. Por eso, contamos con un <span className="highlight">servicio de cochera interna</span> disponible <span className="highlight">las 24 horas</span>, pensado para ofrecerte mayor comodidad durante tu estadía. Mantené tu auto <span className="highlight">protegido y siempre accesible</span>, ya sea que nos visites por trabajo o por placer. Con nuestra cochera interna, disfrutar de Tucumán será mucho más cómodo y seguro.
-					</p>
-				</div>
-				<div className="facility-image">
-					<img src={cochera} alt="Cochera interna hotel" />
-				</div>
-			</div>
-			{abrirModalReserva && (
-				<ReservaModal onClose={() => setAbrirModalReserva(false)} />
-			)}
-
-		</div>
-	);
+      {/* Modal de Reserva */}
+      {abrirModalReserva && (
+        <ReservaModal onClose={() => setAbrirModalReserva(false)} />
+      )}
+    </div>
+  );
 };
 
 export default Facilities;

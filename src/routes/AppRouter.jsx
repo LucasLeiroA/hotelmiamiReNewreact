@@ -6,11 +6,13 @@ import BtnWsp from '../components/BtnWsp/BtnWsp';
 import Home from '../pages/Home/Home';
 import Footer from '../components/Footer/Footer'
 import Habitaciones from '../pages/Habitaciones/Habitaciones';
+import ScrollToTop from "../components/ScrollToTop";
 
 const AppRouter = () => {
   return (
     <Router>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/facilities" element={<Facilities />} />
@@ -18,7 +20,7 @@ const AppRouter = () => {
         <Route path="/contactanos" element={<Contactanos />} />
         <Route path="*" element={<Home />} />
       </Routes>
-       <BtnWsp /> 
+      <BtnWsp />
       <Footer />
     </Router>
   );
