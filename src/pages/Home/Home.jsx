@@ -8,6 +8,7 @@ import recepcion1 from '../../assets/images/recepceion2New.webp';
 import recepcion2 from '../../assets/images/recepcion1New.webp';
 import recepcion3 from '../../assets/images/recepcion3new.webp';
 import recepcion4 from '../../assets/images/recepcion4New.webp';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 	const images = [recepcion2, recepcion3, recepcion4];
@@ -53,7 +54,7 @@ const Home = () => {
 						Te damos la bienvenida a nuestro hotel, donde el confort y la calidez del norte argentino se combinan para brindarte una estadía inolvidable.
 						Ubicado en pleno centro de San Miguel de Tucumán, Hotel Miami es el lugar ideal para descansar, trabajar o descubrir la ciudad.
 					</p>
-			
+
 
 					<button
 						onClick={() => setAbrirModalReserva(true)}
@@ -146,12 +147,12 @@ const Home = () => {
 					<p className="text-[#50536B] leading-relaxed text-base md:text-lg">
 						Ubicado en el corazón de San Miguel de Tucumán, a tan solo siete cuadras de la Plaza Independencia, nuestro hotel combina comodidad, ubicación y atención personalizada.
 					</p>
-					<a
-						href="/contactanos"
+					<Link
+						to="/contactanos"
 						className="mt-4 inline-block bg-[#3D405B] hover:bg-[#2c2f48] text-white px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
 					>
 						CONTACTANOS
-					</a>
+					</Link>
 				</motion.div>
 			</section>
 
